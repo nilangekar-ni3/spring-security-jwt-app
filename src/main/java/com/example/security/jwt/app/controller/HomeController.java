@@ -31,7 +31,8 @@ public class HomeController {
                     new UsernamePasswordAuthenticationToken(tokenRequest.getUserName(), tokenRequest.getPassword()));
         } catch (Exception e) {
             e.printStackTrace();
-            throw new Exception("There is some issue while authenticating user");
+            //throw new Exception("There is some issue while authenticating user");
+            return "Invalid Username/Password";
         }
         return jwtTokenUtil.generateToken(tokenRequest.getUserName());
     }
